@@ -1,12 +1,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
+set rtp+=/Users/luisguzman/.vim/bundle/Vundle.vim
+set rtp+=/opt/homebrew/opt/fzf
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -30,7 +29,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 
 Plugin 'mhartington/oceanic-next'
-Plugin 'dracula/vim', { 'name': 'dracula' }
+""Plugin 'dracula/vim', { 'name': 'dracula' }
+
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'dense-analysis/ale'
 
@@ -76,7 +76,13 @@ let g:oceanic_next_terminal_italic = 1
 let g:dracula_italic = 0
 
 " colorscheme OceanicNext
-colorscheme dracula
+
+packadd! dracula_pro
+syntax enable
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
+
+" colorscheme dracula
 let g:airline_powerline_fonts = 1
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> t<C-n> :TestNearest<CR>
@@ -84,3 +90,4 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
